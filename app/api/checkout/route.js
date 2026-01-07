@@ -1,5 +1,7 @@
 import Stripe from "stripe";
 
+export const runtime = "nodejs";
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function POST() {
@@ -23,8 +25,8 @@ export async function POST() {
         }
       }
     ],
-    success_url: "https://example.com/success",
-    cancel_url: "https://example.com/cancel"
+    success_url: "https://YOUR-SITE.vercel.app/success",
+    cancel_url: "https://YOUR-SITE.vercel.app/product"
   });
 
   return Response.json({ url: session.url });
